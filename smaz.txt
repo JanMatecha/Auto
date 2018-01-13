@@ -1,3 +1,5 @@
 smaz
 
 uprava na webu
+
+uprava v PyCharmu
