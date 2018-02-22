@@ -1,1 +1,8 @@
-# This file is executed on every boot (including wake-boot from deepsleep)#import esp#esp.osdebug(None)import testDiodyimport testMotor#import testServoimport gc#import webrepl#webrepl.start()gc.collect()
+import myNetwork
+myNetwork.do_connect()
+
+import webrepl
+webrepl.start()
+
+import gc
+gc.collect()
