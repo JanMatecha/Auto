@@ -27,28 +27,17 @@ class Motor:
         self.standby_pin = standby_pin
         self._speed = 0
         self._state = 0
-        print("Jan: d1motor: init")
         if standby_pin is not None:
-            print("Jan: d1motor: init B")
             standby_pin.init(standby_pin.OUT, 0)
-        print("Jan: d1motor: init C")
         self.frequency(1000)
-        print("Jan: d1motor: init D")
 
     def frequency(self, frequency=None):
-        print("Jan: d1motor: frequency A", frequency)
         if frequency is None:
-            print("Jan: d1motor: frequency B", frequency)
             return self._pwm_frequency
-        print("Jan: d1motor: frequency C", frequency)
         self._pwm_frequency = frequency
-        print("Jan: d1motor: frequency D")
-        print()
         self.i2c.writeto_mem(self.address, 0x00 | self.index,
             ustruct.pack(">BH", 0x00, frequency))
-        print("Jan: d1motor: frequency E")
 
-    def update(self):
         if self.standby_pin is not None:
             self.standby_pin.value(not self._state == _STATE_SLEEP)
         self.i2c.writeto_mem(self.address, 0x10 | self.index,
@@ -77,4 +66,3 @@ class Motor:
         self._speed = 0
         self._state = _STATE_BRAKE
         self.update()
-
