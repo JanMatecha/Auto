@@ -2,6 +2,17 @@ import time
 from servo import Servo
 servo = Servo(12)
 
+time.sleep(5)
+servo.set_duty(80)
+time.sleep(5)
+servo.set_duty(70)
+time.sleep(5)
+servo.set_duty(90)
+time.sleep(5)
+servo.set_duty(77)
+
+servo.deinit_pwm()
+
 """
 
 import diody

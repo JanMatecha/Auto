@@ -22,4 +22,6 @@ def do_connect():
         sta_if.connect('A', '000AABB87DA6C')
         while not sta_if.isconnected():
             pass
-    print('network config:', sta_if.ifconfig())
+    text = 'network config:', sta_if.ifconfig()
+    print(text)
+    return text
