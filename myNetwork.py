@@ -13,6 +13,7 @@ sta_if.isconnected()
 sta_if.ifconfig()
 """
 
+
 def do_connect():
     import network
     sta_if = network.WLAN(network.STA_IF)
@@ -25,3 +26,8 @@ def do_connect():
     text = 'network config:', sta_if.ifconfig()
     print(text)
     return text
+
+
+def get_ip():
+    sta_if = network.WLAN(network.STA_IF)
+    return sta_if.ifconfig()[0]

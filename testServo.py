@@ -1,7 +1,7 @@
 import time
 from servo import Servo
-servo = Servo(12)
-
+servo = Servo(pin_number=12, freq=50, duty=80, min_duty=67, max_duty=88, mean_duty=80)
+servo.set_duty(80)
 time.sleep(5)
 servo.set_duty(80)
 time.sleep(5)

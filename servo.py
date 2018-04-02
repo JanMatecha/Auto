@@ -57,11 +57,24 @@ class Servo:
     def deinit_pwm(self):
         self.pwm.deinit()
 
-    def vlevo(self):
-        self.set_duty(self.min_duty)
+    def vlevo(self, direction=None):
+        if direction is None:
+            self.set_duty(self.min_duty)
+        else:
+            # duty = mean - (mean - min)*direction
+            duty=self.mean_duty-(self.mean_duty-self.min_duty)*direction
+            print(duty)
+            self.set_duty(duty)
 
-    def vpravo(self):
-        self.set_duty(self.max_duty)
+    def vpravo(self, direction=None):
+
+        if direction is None:
+            self.set_duty(self.max_duty)
+        else:
+            # duty = mean + (max - mean)*direction
+            duty = self.mean_duty+(self.max_duty-self.mean_duty)*direction
+            print(duty)
+            self.set_duty(duty)
 
     def rovne(self):
         self.set_duty(self.mean_duty)
