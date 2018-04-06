@@ -62,7 +62,7 @@ class Servo:
             self.set_duty(self.min_duty)
         else:
             # duty = mean - (mean - min)*direction
-            duty=self.mean_duty-(self.mean_duty-self.min_duty)*direction
+            duty=int(self.mean_duty-(self.mean_duty-self.min_duty)*direction)
             print(duty)
             self.set_duty(duty)
 
@@ -72,7 +72,7 @@ class Servo:
             self.set_duty(self.max_duty)
         else:
             # duty = mean + (max - mean)*direction
-            duty = self.mean_duty+(self.max_duty-self.mean_duty)*direction
+            duty = int(self.mean_duty+(self.max_duty-self.mean_duty)*direction)
             print(duty)
             self.set_duty(duty)
 

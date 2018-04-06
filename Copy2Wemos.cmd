@@ -1,0 +1,25 @@
+@ECHO OFF
+FOR %%A IN (
+boot.py,
+d1motor.py,
+diody.py,
+epd1in54.py,
+esp.py,
+hcsr04.py,
+httpServer.py,
+images.py,
+main.py,
+motor.py,
+myNetwork.py,
+oled.py,
+server.py,
+servo.py,
+sit.py,
+ssd1306.py,
+testAuto.py,
+testDiody.py,
+testHcsr04.py,
+testMotor.py,
+testOled.py,
+testServo.py
+) DO (ampy -p COM15 put %%A %%A)
